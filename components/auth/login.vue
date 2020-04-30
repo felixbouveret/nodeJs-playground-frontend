@@ -55,14 +55,15 @@ export default {
         })
         .then(res => {
           this.$axios.setToken(res.token, "Bearer");
-          this.$cookies.set("auth", res.token, {
-            path: "/",
-            maxAge: 60 * 60 * 24
-          });
-          this.$cookies.set("userId", res.userId, {
-            path: "/",
-            maxAge: 60 * 60 * 24
-          });
+          this.$cookies.set(
+            "auth",
+            { token: res.token, userId: res.userId },
+            {
+              path: "/",
+              maxAge: 60 * 60 * 24
+            }
+          );
+
           this.connectUser(res.userId);
           this.$router.push("/todo_list");
         })

@@ -18,10 +18,9 @@ export default () => {
     actions: {
       nuxtServerInit({ dispatch }) {
         let auth = this.$cookies.get("auth");
-        let userId = this.$cookies.get("userId");
         if (auth) {
           this.$axios.setToken(auth.token, "Bearer");
-          dispatch("connectUser", userId);
+          dispatch("connectUser", auth.userId);
         }
       },
 

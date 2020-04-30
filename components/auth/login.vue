@@ -55,7 +55,7 @@ export default {
         })
         .then(res => {
           this.$axios.setToken(res.token, "Bearer");
-          this.$cookies.set("auth", res.token, {
+          this.$cookies.set("auth", res, {
             path: "/",
             maxAge: 60 * 60 * 24
           });

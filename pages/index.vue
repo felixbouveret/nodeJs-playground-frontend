@@ -14,6 +14,7 @@ import login from "~/components/auth/login";
 import signup from "~/components/auth/signup";
 
 export default {
+  middleware: "auth/isConnected",
   components: {
     login,
     signup

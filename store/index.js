@@ -16,11 +16,11 @@ export default () => {
       }
     },
     actions: {
-      nuxtServerInit({ commit }) {
+      nuxtServerInit({ dispatch }) {
         let auth = this.$cookies.get("auth");
         if (auth) {
-          this.$axios.setToken(auth, "Bearer");
-          commit("SET_CONNECTION", true);
+          this.$axios.setToken(auth.token, "Bearer");
+          dispatch("connectUser", auth.userId);
         }
       },
 

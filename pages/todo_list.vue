@@ -8,7 +8,7 @@
 <script>
 import disconnect from "~/components/auth/disconnect";
 export default {
-  middleware: "auth",
+  middleware: "auth/isNotConnected",
   components: {
     disconnect
   }

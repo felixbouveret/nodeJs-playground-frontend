@@ -60,6 +60,7 @@ export default {
       await this.$axios
         .$post("http://localhost:8080/users/signup/", {
           email: this.email,
+          name: this.name,
           password: this.password
         })
         .then(res => {
@@ -77,7 +78,7 @@ export default {
 form {
   border: 2px solid white;
   padding: 24px;
-  width: 45%;
+  width: 95%;
   max-width: 400px;
   margin: 8px;
 }

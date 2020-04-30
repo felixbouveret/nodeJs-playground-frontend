@@ -18,9 +18,10 @@ export default () => {
     actions: {
       nuxtServerInit({ dispatch }) {
         let auth = this.$cookies.get("auth");
+        let userId = this.$cookies.get("userId");
         if (auth) {
           this.$axios.setToken(auth.token, "Bearer");
-          dispatch("connectUser", auth.userId);
+          dispatch("connectUser", userId);
         }
       },
 
@@ -31,8 +32,11 @@ export default () => {
 
       disconnectUser({ commit }) {
         this.$cookies.remove("auth");
+        this.$cookies.remove("userId");
+        this.$axios.setToken(false);
         commit("SET_USER_ID", null);
         commit("SET_CONNECTION", false);
+        this.$router.push("/");
       }
     }
   });

@@ -1,18 +1,39 @@
 <template>
-  <section>
-    <h1>Todo List</h1>
-    <disconnect />
-  </section>
+  <div class="todo-list">
+    <Header title="Welcome" />
+    <profile :user="user" />
+  </div>
 </template>
 
 <script>
-import disconnect from "~/components/auth/disconnect";
+import profile from "~/components/profile";
+import Header from "~/components/header";
+
 export default {
   middleware: "auth/isNotConnected",
   components: {
-    disconnect
+    profile,
+    Header
+  },
+  async asyncData({ store, $axios }) {
+    const userId = store.state.userId;
+    let user;
+    await $axios
+      .$get("http://localhost:8080/users/basic-infos")
+      .then(res => {
+        user = res.userBasic;
+      })
+      .catch(e => console.log(e));
+    return { user };
   }
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.todo-list {
+  padding: 64px 0;
+  h1 {
+    font-size: 32px;
+  }
+}
+</style>

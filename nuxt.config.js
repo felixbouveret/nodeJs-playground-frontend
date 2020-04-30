@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["~/assets/scss/ds-commons.scss"],
+  css: ["~/assets/scss/ds-commons.scss", "~/assets/scss/commons.scss"],
   /*
    ** Plugins to load before mounting the App
    */

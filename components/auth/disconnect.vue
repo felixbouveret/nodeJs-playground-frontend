@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <Button @click="disconnect" text="Disconnect" />
-  </div>
+  <section class="disconnect">
+    <div class="inner">
+      <Button @click="disconnectUser" text="Disconnect" />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -15,12 +17,7 @@ export default {
   methods: {
     ...mapActions({
       disconnectUser: "disconnectUser"
-    }),
-    disconnect() {
-      this.$axios.setToken(false);
-      this.disconnectUser();
-      this.$router.push("/");
-    }
+    })
   }
 };
 </script>

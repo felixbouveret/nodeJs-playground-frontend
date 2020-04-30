@@ -55,7 +55,11 @@ export default {
         })
         .then(res => {
           this.$axios.setToken(res.token, "Bearer");
-          this.$cookies.set("auth", res, {
+          this.$cookies.set("auth", res.token, {
+            path: "/",
+            maxAge: 60 * 60 * 24
+          });
+          this.$cookies.set("userId", res.userId, {
             path: "/",
             maxAge: 60 * 60 * 24
           });
@@ -74,7 +78,7 @@ export default {
 form {
   border: 2px solid white;
   padding: 24px;
-  width: 45%;
+  width: 95%;
   max-width: 400px;
   margin: 8px;
 }

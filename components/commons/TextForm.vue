@@ -19,8 +19,7 @@ export default {
   props: {
     id: {
       type: String,
-      required: true,
-      default: null
+      required: true
     },
     label: {
       type: String,

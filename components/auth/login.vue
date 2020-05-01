@@ -65,7 +65,7 @@ export default {
           );
 
           this.connectUser(res.userId);
-          this.$router.push("/todo_list");
+          this.$router.push("/");
         })
         .catch(error => {
           console.log(error);

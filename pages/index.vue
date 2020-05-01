@@ -1,41 +1,39 @@
 <template>
-  <div class="container">
-    <Header title="Connect or register" />
-    <login
-      v-if="isLoginDisplayed"
-      @switchCase="isLoginDisplayed = !isLoginDisplayed"
-    />
-    <signup v-else @switchCase="isLoginDisplayed = !isLoginDisplayed" />
+  <div class="todo-list">
+    <Header title="Welcome" />
+    <profile :user="user" />
   </div>
 </template>
 
 <script>
-import login from "~/components/auth/login";
-import signup from "~/components/auth/signup";
+import profile from "~/components/profile";
 import Header from "~/components/header";
 
 export default {
-  middleware: "auth/isConnected",
+  middleware: "auth/isNotConnected",
   components: {
-    login,
-    signup,
+    profile,
     Header
   },
-  data() {
-    return {
-      isLoginDisplayed: true
-    };
+  async asyncData({ store, $axios }) {
+    const userId = store.state.userId;
+    let user;
+    await $axios
+      .$get("users/basic-infos")
+      .then(res => {
+        user = res.userBasic;
+      })
+      .catch(e => console.log(e));
+    return { user };
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  min-height: 700px;
+.todo-list {
+  padding: 64px 0;
+  h1 {
+    font-size: 32px;
+  }
 }
 </style>

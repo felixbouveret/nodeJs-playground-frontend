@@ -35,7 +35,7 @@ export default () => {
         this.$axios.setToken(false);
         commit("SET_USER_ID", null);
         commit("SET_CONNECTION", false);
-        this.$router.push("/");
+        this.$router.push("/login");
       }
     }
   });

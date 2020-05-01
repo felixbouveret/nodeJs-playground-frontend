@@ -13,22 +13,35 @@
             {{ item }}
           </div>
         </div>
+        <Button
+          class="modify-button"
+          @click="modifyPopupOpen = true"
+          text="Modify"
+        />
       </div>
+      <Modify v-if="modifyPopupOpen" @close="modifyPopupOpen = false" />
     </div>
   </section>
 </template>
 
 <script>
+import Modify from "~/components/auth/modify";
 import Button from "~/components/commons/Button";
 export default {
   components: {
-    Button
+    Button,
+    Modify
   },
   props: {
     user: {
       type: Object,
       required: true
     }
+  },
+  data() {
+    return {
+      modifyPopupOpen: false
+    };
   }
 };
 </script>

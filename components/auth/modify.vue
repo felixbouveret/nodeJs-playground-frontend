@@ -50,7 +50,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({
+    ...mapState("user", {
       userId: state => state.userId
     })
   },

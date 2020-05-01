@@ -26,12 +26,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
+    ...mapActions("user", {
       disconnectUser: "disconnectUser"
     })
   },
   computed: {
-    ...mapState({
+    ...mapState("user", {
       isConnected: state => state.connected
     })
   }

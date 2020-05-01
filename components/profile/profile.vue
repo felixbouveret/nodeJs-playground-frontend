@@ -19,7 +19,9 @@
           text="Modify"
         />
       </div>
-      <Modify v-if="modifyPopupOpen" @close="modifyPopupOpen = false" />
+      <portal to="root-portal">
+        <Modify v-if="modifyPopupOpen" @close="modifyPopupOpen = false" />
+      </portal>
     </div>
   </section>
 </template>

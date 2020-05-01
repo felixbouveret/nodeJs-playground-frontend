@@ -44,7 +44,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
+    ...mapActions("user", {
       connectUser: "connectUser"
     }),
     async login() {

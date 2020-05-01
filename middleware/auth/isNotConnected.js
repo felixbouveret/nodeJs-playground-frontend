@@ -1,5 +1,5 @@
 export default ({ store, redirect }) => {
-  if (!store.state.connected) {
+  if (!store.state.user.connected) {
     redirect("/login");
   }
 };

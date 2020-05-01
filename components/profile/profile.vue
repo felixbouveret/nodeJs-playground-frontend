@@ -19,6 +19,7 @@
           text="Modify"
         />
       </div>
+      <todoList />
       <portal to="root-portal">
         <Modify v-if="modifyPopupOpen" @close="modifyPopupOpen = false" />
       </portal>
@@ -29,10 +30,13 @@
 <script>
 import Modify from "~/components/auth/modify";
 import Button from "~/components/commons/Button";
+import todoList from "./components/todoList";
+
 export default {
   components: {
     Button,
-    Modify
+    Modify,
+    todoList
   },
   props: {
     user: {

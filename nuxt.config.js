@@ -36,6 +36,10 @@ export default {
    ** Nuxt.js modules
    */
   modules: ["@nuxtjs/axios", "portal-vue/nuxt", "cookie-universal-nuxt"],
+
+  axios: {
+    baseURL: "http://localhost:8080"
+  },
   /*
    ** Build configuration
    */

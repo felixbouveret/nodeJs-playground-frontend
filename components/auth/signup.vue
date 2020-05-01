@@ -58,7 +58,7 @@ export default {
   methods: {
     async signUp() {
       await this.$axios
-        .$post("http://localhost:8080/users/signup/", {
+        .$post("users/signup/", {
           email: this.email,
           name: this.name,
           password: this.password

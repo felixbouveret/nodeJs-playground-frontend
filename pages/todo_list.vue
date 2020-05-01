@@ -19,7 +19,7 @@ export default {
     const userId = store.state.userId;
     let user;
     await $axios
-      .$get("http://localhost:8080/users/basic-infos")
+      .$get("users/basic-infos")
       .then(res => {
         user = res.userBasic;
       })

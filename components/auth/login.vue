@@ -49,7 +49,7 @@ export default {
     }),
     async login() {
       await this.$axios
-        .$post("http://localhost:8080/users/login/", {
+        .$post("users/login/", {
           email: this.email,
           password: this.password
         })

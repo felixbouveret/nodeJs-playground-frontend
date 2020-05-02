@@ -20,6 +20,8 @@
         />
       </div>
       <todoList />
+      <payment />
+      <productList />
       <portal to="root-portal">
         <Modify v-if="modifyPopupOpen" @close="modifyPopupOpen = false" />
       </portal>
@@ -31,12 +33,16 @@
 import Modify from "~/components/auth/modify";
 import Button from "~/components/commons/Button";
 import todoList from "./components/todoList";
+import payment from "./components/payment";
+import productList from "./components/productList";
 
 export default {
   components: {
     Button,
     Modify,
-    todoList
+    todoList,
+    payment,
+    productList
   },
   props: {
     user: {
